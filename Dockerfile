@@ -18,9 +18,10 @@ RUN (cd OpenBLAS \
 ADD openblas.conf /etc/ld.so.conf.d/openblas.conf
 RUN ldconfig
 
-WORKDIR $HOME
+# Restore default workdir
+WORKDIR /
 
-#Minimize image size
+# Cleanup build artifacts and dependencies to minimize image size
 RUN rm -rf /tmp/build
 
 RUN (apt-get remove -y --purge git-core build-essential; \
