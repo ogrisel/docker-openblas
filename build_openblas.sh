@@ -16,7 +16,7 @@ apt-get -y install git-core build-essential gfortran
 git clone -q --branch=master git://github.com/xianyi/OpenBLAS.git
 (cd OpenBLAS \
     && make DYNAMIC_ARCH=1 NO_AFFINITY=1 NUM_THREADS=32 \
-    && make install)
+    && make install DYNAMIC_ARCH=1 NO_AFFINITY=1 NUM_THREADS=32)
 
 # Rebuild ld cache, this assumes that:
 # /etc/ld.so.conf.d/openblas.conf was installed by Dockerfile
